@@ -13,7 +13,6 @@ Data = {
         DragRaceCP = nil,
         DragRaceData = {}
     },
-    Debug = false,
 }
 ---------------------------
     -- Event Handlers --
