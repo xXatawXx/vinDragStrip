@@ -59,7 +59,7 @@ end)
 RegisterNetEvent('vinDragStrip:cl_StartDragRace')
 AddEventHandler('vinDragStrip:cl_StartDragRace', function(dragRaceId)
     if Data.Player.DragRaceId ~= 0 and Data.Player.DragRaceId == dragRaceId then
-        Data.Player.DragRaceCP = CreateCheckpoint(9, Config.DragStrip[2]["FinishLinePosition"][Data.Player.LinePosition].x, Config.DragStrip[2]["FinishLinePosition"][Data.Player.LinePosition].y, Config.DragStrip[2]["FinishLinePosition"][Data.Player.LinePosition].z, 0, 0, 0, 35.0, 255, 71, 94, 255, 0) 
+        Data.Player.DragRaceCP = CreateCheckpoint(9, Config.DragStrip[1]["FinishLinePosition"][Data.Player.LinePosition].x, Config.DragStrip[1]["FinishLinePosition"][Data.Player.LinePosition].y, Config.DragStrip[1]["FinishLinePosition"][Data.Player.LinePosition].z, 0, 0, 0, 35.0, 255, 71, 94, 255, 0) 
         racestart(dragRaceId)
         CreateThread(function()
             while Data.Player.RaceStarted do
@@ -127,13 +127,12 @@ CreateThread(function()
             ref = "right_finish_line"
         }
     })
-    for k,v in pairs(Config.DragStrip) do
-        local coords = vector3(Config.DragStrip[k]["JoinRace"].x,Config.DragStrip[k]["JoinRace"].y,Config.DragStrip[k]["JoinRace"].z)
-        local tracking_length, tracking_width = Config.DragStrip[k]["JoinRace"].tracking_length, Config.DragStrip[k]["JoinRace"].tracking_width
-        local tracking_minZ, tracking_maxZ = Config.DragStrip[k]["JoinRace"].tracking_minZ, Config.DragStrip[k]["JoinRace"].tracking_maxZ
-        local tracking_heading = Config.DragStrip[k]["JoinRace"].tracking_heading
-        local tracking_distance = Config.DragStrip[k]["JoinRace"].tracking_distance
-        exports["qtarget"]:AddBoxZone("join_dragstrip_race", coords, tracking_length, tracking_width, {
+    for i = 1, #Config.DragStrip do
+        local tracking_length, tracking_width = Config.DragStrip[i]["JoinRace"].tracking_length, Config.DragStrip[i]["JoinRace"].tracking_width
+        local tracking_minZ, tracking_maxZ = Config.DragStrip[i]["JoinRace"].tracking_minZ, Config.DragStrip[i]["JoinRace"].tracking_maxZ
+        local tracking_heading = Config.DragStrip[i]["JoinRace"].tracking_heading
+        local tracking_distance = Config.DragStrip[i]["JoinRace"].tracking_distance
+        exports["qtarget"]:AddBoxZone("join_dragstrip_race", vector3(Config.DragStrip[i]["JoinRace"].x,Config.DragStrip[i]["JoinRace"].y,Config.DragStrip[i]["JoinRace"].z), tracking_length, tracking_width, {
             name = "join_dragstrip_race",
             debugPoly = false,
             heading = tracking_heading,
@@ -145,17 +144,17 @@ CreateThread(function()
                     event = "vinDragStrip:cl_joinRace",
                     icon = "fas fa-cars",
                     label = "Join Dragstrip Race",
-                    raceId = k,
+                    raceId = i,
                 },
             },
             job = {"all"},
             distance = tracking_distance
         })
     end
-    for k,v in pairs(Config.DragStrip) do
-        local coords = vector3(Config.DragStrip[k]["LinePosition"][1].x,Config.DragStrip[k]["LinePosition"][1].y,Config.DragStrip[k]["LinePosition"][1].z)
-        local length, width = Config.DragStrip[k]["LinePosition"][1].length, Config.DragStrip[k]["LinePosition"][1].width
-        local minZ, maxZ = Config.DragStrip[k]["LinePosition"][1].minZ, Config.DragStrip[k]["LinePosition"][1].maxZ
+    for i = 1, #Config.DragStrip do
+        local coords = vector3(Config.DragStrip[i]["LinePosition"][1].x,Config.DragStrip[i]["LinePosition"][1].y,Config.DragStrip[i]["LinePosition"][1].z)
+        local length, width = Config.DragStrip[i]["LinePosition"][1].length, Config.DragStrip[i]["LinePosition"][1].width
+        local minZ, maxZ = Config.DragStrip[i]["LinePosition"][1].minZ, Config.DragStrip[i]["LinePosition"][1].maxZ
         exports["polyzones"]:AddBoxZone("first_line", coords, length, width, {
             debugPoly = false,
             heading = 0,
@@ -166,9 +165,9 @@ CreateThread(function()
                 ref = "left_start_line"
             }
         })
-        local coords = vector3(Config.DragStrip[k]["LinePosition"][2].x,Config.DragStrip[k]["LinePosition"][2].y,Config.DragStrip[k]["LinePosition"][2].z)
-        local length, width = Config.DragStrip[k]["LinePosition"][2].length, Config.DragStrip[k]["LinePosition"][2].width
-        local minZ, maxZ = Config.DragStrip[k]["LinePosition"][2].minZ, Config.DragStrip[k]["LinePosition"][2].maxZ
+        local coords = vector3(Config.DragStrip[i]["LinePosition"][2].x,Config.DragStrip[i]["LinePosition"][2].y,Config.DragStrip[i]["LinePosition"][2].z)
+        local length, width = Config.DragStrip[i]["LinePosition"][2].length, Config.DragStrip[i]["LinePosition"][2].width
+        local minZ, maxZ = Config.DragStrip[i]["LinePosition"][2].minZ, Config.DragStrip[i]["LinePosition"][2].maxZ
         exports["polyzones"]:AddBoxZone("second_line", coords, length, width, {
             debugPoly = false,
             heading = 0,
