@@ -59,7 +59,7 @@ end)
 RegisterNetEvent('vinDragStrip:cl_StartDragRace')
 AddEventHandler('vinDragStrip:cl_StartDragRace', function(dragRaceId)
     if Data.Player.DragRaceId ~= 0 and Data.Player.DragRaceId == dragRaceId then
-        Data.Player.DragRaceCP = CreateCheckpoint(9, Config.DragStrip[1]["FinishLinePosition"][Data.Player.LinePosition].x, Config.DragStrip[1]["FinishLinePosition"][Data.Player.LinePosition].y, Config.DragStrip[1]["FinishLinePosition"][Data.Player.LinePosition].z, 0, 0, 0, 35.0, 255, 71, 94, 255, 0) 
+        Data.Player.DragRaceCP = CreateCheckpoint(21, Config.DragStrip[1]["FinishLinePosition"][Data.Player.LinePosition].x, Config.DragStrip[1]["FinishLinePosition"][Data.Player.LinePosition].y, Config.DragStrip[1]["FinishLinePosition"][Data.Player.LinePosition].z, 0, 0, 0, 35.0, 255, 71, 94, 255, 0) 
         racestart(dragRaceId)
         CreateThread(function()
             while Data.Player.RaceStarted do
