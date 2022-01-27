@@ -1,6 +1,6 @@
 # vinDragStrip
 
-Depends on : https://github.com/xXatawXx/polyzones, https://github.com/overextended/qtarget & https://github.com/JayMontana36/mythic_notify-1
+Depends on : https://github.com/xXatawXx/polyzones, https://github.com/brentN5/bt-target & https://github.com/JayMontana36/mythic_notify-1
 
 Basic 2 player drag strip race script I made a while back, around this time I was just returning to fivem and decided to start writing lua again, made the barberscript after this I think, but still rusty so that's a plus, don't go reselling this as your own please that's lame ;c.
 
