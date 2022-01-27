@@ -133,7 +133,7 @@ CreateThread(function()
         local tracking_minZ, tracking_maxZ = Config.DragStrip[k]["JoinRace"].tracking_minZ, Config.DragStrip[k]["JoinRace"].tracking_maxZ
         local tracking_heading = Config.DragStrip[k]["JoinRace"].tracking_heading
         local tracking_distance = Config.DragStrip[k]["JoinRace"].tracking_distance
-        exports["qtarget"]:AddBoxZone("join_dragstrip_race", coords, tracking_length, tracking_width, {
+        exports["bt-target"]:AddBoxZone("join_dragstrip_race", coords, tracking_length, tracking_width, {
             name = "join_dragstrip_race",
             debugPoly = false,
             heading = tracking_heading,
